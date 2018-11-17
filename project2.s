@@ -73,7 +73,12 @@ check_strings:
   slti $t6, $t5, 48
   bne $t6, $zero, error_invalid_input
   slti $t6, $t5, 58
-  bne $t6, $zero, move_char
+  bne $t6, $zero, move_char  # will implement LATER
   slti $t6, $t5, 65
+  bne $t6, $zero, error_invalid_input
+  slti $t6, $t5, 86
+  bne $t6, $zero, move_char
+  slti $t6, $t5, 97
+  
   
   
