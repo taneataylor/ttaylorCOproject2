@@ -115,7 +115,7 @@ base_10_conv:
 
 base_33_upper:
   addi $s4, $s4, -55
-  j compiled_answ
+  j compiled_answ  # jumps to compiled_answ
   
 base_33_lower:
   addi $s4, $s4, -87
@@ -134,7 +134,7 @@ first_int:
   add $t7, $t7, $s7
   addi $s0, $s0, -1
   addi $a0, $a0, 1
-  j base_converter
+  j base_converter  # jumps to base_converter function
 
 second_int:
   li $s6, 961 # 31^2
@@ -143,7 +143,7 @@ second_int:
   add $t7, $t7, $s7
   addi $s0, $s0, -1
   addi $a0, $a0, 1
-  j base_converter
+  j base_converter  # jumps to base_converter function
   
 third_int:
   li $s6, 31
@@ -152,7 +152,7 @@ third_int:
   add $t7, $t7, $s7
   addi $s0, $s0, -1
   addi $a0, $a0, 1
-  j base_converter
+  j base_converter  # jumps to base_converter function
 
 fourth_int:
   li $s6, 1  # 31 ^ 0
@@ -165,4 +165,4 @@ print_answ:  # prints final answer
   move $a0, $t7
   syscall
 
-j exit
+j exit  # jumps to exit/exit
