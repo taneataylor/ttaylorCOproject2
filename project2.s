@@ -22,3 +22,9 @@ error_long_input:  # long input case
   li $v0, 4
   syscall
   j exit
+  
+error_invalid_input:
+  la $a0, invalidMsg  # loads invalidMsg string to register
+  li $v0, 4
+  syscall
+  j exit
