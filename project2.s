@@ -1,12 +1,13 @@
 .data
-  .data
-string: .asciiz "Hello"
-errorMsg: .asciiz "Input is too long."
+  # string: .asciiz "Hello" 
+  emptyMsg: .asciiz "Input is empty."
+  errorMsg: .asciiz "Input is too long."
+  userMsg: .space 500
+  invalidMsg: .asciiz "Invalid base-N number."
 
-    .text 
-  .globl main
-main:
-  li $a0, 0  # first argument
+.text
+exit:
+  li $v0, 10
   syscall
   
-  la $a0, string # loads strings address
+  
