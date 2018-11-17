@@ -59,3 +59,10 @@ len_iter:
   addi $t0, $t0, 1
   j len_iter
   
+len_found:
+  beqz $t0, error_empty_input
+  slti $t3, $t0, 5  # if $t0 is less than $t3, sets $t3 to 1
+  beqz $t3, error_long_input
+  move $a0, $t4  # $a0 == $t4
+  j check_strings  # will implement later
+  
