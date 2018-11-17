@@ -145,6 +145,11 @@ second_int:
   addi $a0, $a0, 1
   j base_converter
   
+third_int:
+  li $s6, 31 # 31^1
+  mult $s4, $s6
+  mflo $s7
+  add $t7, $t7, $s7
 
 
 
