@@ -103,4 +103,10 @@ base_converter:
   beqz $s4, print_answ
   beq $s4, $t1, print_answ
   slti $t6, $s4, 58
+  bne $t6, $zero, base_ten_conv
+  slti $t6, $s4, 88
+  bne $t6, $zero, base_33_upper
+  slti $t6, $s4, 120
+  bne $t6, $zero, base_33_lower
+
 
