@@ -50,3 +50,12 @@ input_length:
   addi $t0, $t0, 0  # $t0 = $t0 + 0
   addi $t1, $t1, 10    # $t1 = $t1 + 10
   add $t2, $t2, $a0    # $t2 = $t2 + $a0(1)
+
+len_iter:
+  lb $t3, 0($a0)  # loads byte into temp
+  beqz $t3, len_found  
+  beq $t2, $t1, len_found  # branches if equal
+  addi $a0, $a0, 1 
+  addi $t0, $t0, 1
+  j len_iter
+  
