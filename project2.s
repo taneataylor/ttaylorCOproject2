@@ -71,5 +71,5 @@ check_strings:
   beqz $t5, conversion_prep
   beq $t5, $t1, conversion_prep
   slti $t6, $t5, 48
-  bne $
+  # bne $
   
