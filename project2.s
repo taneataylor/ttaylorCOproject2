@@ -88,7 +88,7 @@ move_char:  # function that moves char in string forward
   addi $a0, $a0, 1
   j check_strings # jumps to check_strings function
   
-conversion_prep:
+conversion_prep:  # function that prepares values for conversion
   move $a0, $t4
   addi $t7, $t7, 0
   add $s0, $s0, $t0
@@ -98,7 +98,7 @@ conversion_prep:
   li $s1, 1
   li $s5, 0
   
-base_converter:
+base_converter:  # calculates base conversion
   lb $s4, 0($a0)
   beqz $s4, print_answ
   beq $s4, $t1, print_answ
@@ -121,11 +121,14 @@ base_33_upper:
 base_33_lower:
   addi $s4, $s4, -87
 
-compiled_answ:
+compiled_answ:  # compacts nums for final answer
   beq $s0, $s3, first_int
   beq $s0, $s2, second_int
   beq $s0, $s1, third_int
   beq $s0, $s5, fourth_int
-
-
-
+  
+first_digit: 
+  li $s6, 29791 # 31^3
+  mult $s4, $s6
+  mflo $s7
+  add $t7, $t7, $s7
