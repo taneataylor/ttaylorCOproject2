@@ -110,3 +110,16 @@ base_converter:
   bne $t6, $zero, base_33_lower
 
 
+base_10_conv:
+  addi $s4, $s4, -48
+  j serialize_answ
+
+base_33_upper:
+  addi $s4, $s4, -55
+  j serialize_answ
+  
+base_33_lower:
+  addi $s4, $s4, -87
+
+
+
