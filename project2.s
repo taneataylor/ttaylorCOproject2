@@ -1,6 +1,5 @@
 # N = 31
 .data
-  # string: .asciiz "Hello" 
   emptyMsg: .asciiz "Input is empty."
   errorMsg: .asciiz "Input is too long."
   userMsg: .space 500
@@ -35,14 +34,14 @@ main:
   li $a1, 250 # loads 250 into a1 register
   syscall
   
-delete_left_spaces:
+delete_left_spaces:  # deletes spaces from left side
   li $t3, 32  # $t3 = 32(space)
   lb $t4, 0($a0)
   beq $t3, $t4, delete_first_char  # branch to delete_first_char if $t3 == $t4
   move $t4, $a0  # copies value from $t4 register to $a0
   j input_length  # jumps to input_length function
   
-delete_first_char:  
+delete_first_char:  # deletes first character
   addi $a0, $a0, 1    # $a0 = $a0 + 1
   j delete_left_spaces
  
@@ -127,6 +126,7 @@ compiled_answ:  # compacts nums for final answer
   beq $s0, $s1, third_int
   beq $s0, $s5, fourth_int
   
+# functions for integers(4)
 first_int: 
   li $s6, 29791 # 31^3
   mult $s4, $s6
@@ -160,7 +160,7 @@ fourth_int:
   mflo $s7
   add $t7, $t7, $s7
   
-print_answ:
+print_answ:  # prints final answer
   li $v0, 1
   move $a0, $t7
   syscall
