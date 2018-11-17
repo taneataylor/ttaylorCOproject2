@@ -73,7 +73,7 @@ check_strings:
   slti $t6, $t5, 48
   bne $t6, $zero, error_invalid_input
   slti $t6, $t5, 58
-  bne $t6, $zero, move_char  # will implement LATER
+  bne $t6, $zero, move_char
   slti $t6, $t5, 65
   bne $t6, $zero, error_invalid_input
   slti $t6, $t5, 86
@@ -84,6 +84,8 @@ check_strings:
   bne $t6, $zero, step_char_forward
   bgt $t5, 119, err_invalid_input  
 
-  
+move_char:  # function that moves char in string forward
+  addi $a0, $a0, 1
+  j check_strings # jumps to check_strings function
   
   
