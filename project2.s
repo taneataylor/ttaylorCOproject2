@@ -52,18 +52,18 @@ input_length:
   add $t2, $t2, $a0    # $t2 = $t2 + $a0(1)
 
 len_iter:
-  lb $t3, 0($a0)  # loads byte into temp
-  beqz $t3, len_found  
-  beq $t2, $t1, len_found  # branches if equal
+  lb $t8, 0($a0)  # loads byte into temp
+  beqz $t8, len_found  
+  beq $t8, $t1, len_found  # branches if equal
   addi $a0, $a0, 1 
   addi $t0, $t0, 1
   j len_iter
   
 len_found:
   beqz $t0, error_empty_input
-  slti $t3, $t0, 5  # if $t0 is less than $t3, sets $t3 to 1
-  beqz $t3, error_long_input
-  move $a0, $t4  # $a0 == $t4
+  slti $t9, $t0, 5  # if $t0 is less than $t3, sets $t3 to 1
+  beqz $t9, error_long_input
+  move $a0, $t2  # $a0 == $t4
   j check_strings  # will implement later
   
 check_strings:
@@ -71,5 +71,5 @@ check_strings:
   beqz $t5, conversion_prep
   beq $t5, $t1, conversion_prep
   slti $t6, $t5, 48
-  # bne...
+  bne $
   
