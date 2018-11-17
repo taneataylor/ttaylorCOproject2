@@ -79,10 +79,10 @@ check_strings:
   slti $t6, $t5, 86
   bne $t6, $zero, move_char
   slti $t6, $t5, 97
-  bne $t6, $zero, err_invalid_input
+  bne $t6, $zero, error_invalid_input
   slti $t6, $t5, 118       
-  bne $t6, $zero, step_char_forward
-  bgt $t5, 119, err_invalid_input  
+  bne $t6, $zero, move_char
+  bgt $t5, 119, error_invalid_input  
 
 move_char:  # function that moves char in string forward
   addi $a0, $a0, 1
@@ -120,6 +120,12 @@ base_33_upper:
   
 base_33_lower:
   addi $s4, $s4, -87
+
+compiled_answ:
+  beq $s0, $s3, first_int
+  beq $s0, $s2, second_int
+  beq $s0, $s1, third_int
+  beq $s0, $s5, fourth_int
 
 
 
