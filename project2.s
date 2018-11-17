@@ -66,3 +66,10 @@ len_found:
   move $a0, $t4  # $a0 == $t4
   j check_strings  # will implement later
   
+check_strings:
+  lb $t5, 0($a0)
+  beqz $t5, conversion_prep
+  beq $t5, $t1, conversion_prep
+  slti $t6, $t5, 48
+  # bne...
+  
