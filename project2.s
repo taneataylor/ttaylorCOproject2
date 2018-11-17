@@ -43,7 +43,7 @@ delete_left_spaces:  # deletes spaces from left side
   
 delete_first_char:  # deletes first character
   addi $a0, $a0, 1    # $a0 = $a0 + 1
-  j delete_left_spaces
+  j delete_left_spaces  # jumps to delete_left_spaces
  
 input_length:
   addi $t0, $t0, 0  # $t0 = $t0 + 0
@@ -56,14 +56,14 @@ len_iter:
   beq $t8, $t1, len_found  # branches if equal
   addi $a0, $a0, 1 
   addi $t0, $t0, 1
-  j len_iter
+  j len_iter  # jumps to len_iter function
   
 len_found:
   beqz $t0, error_empty_input
   slti $t9, $t0, 5  # if $t0 is less than $t3, sets $t3 to 1
   beqz $t9, error_long_input
   move $a0, $t2  # $a0 == $t4
-  j check_strings  # will implement later
+  j check_strings  # jumps to check_strings function
   
 check_strings:
   lb $t5, 0($a0)  # takes memory from $t5 and place in $a0
@@ -111,11 +111,11 @@ base_converter:  # calculates base conversion
 
 base_10_conv:
   addi $s4, $s4, -48
-  j serialize_answ
+  j compiled_answ  # jumps to compiled_answ
 
 base_33_upper:
   addi $s4, $s4, -55
-  j serialize_answ
+  j compiled_answ
   
 base_33_lower:
   addi $s4, $s4, -87
