@@ -93,3 +93,14 @@ conversion_prep:
   addi $t7, $t7, 0
   add $s0, $s0, $t0
   addi $s0, $s0, -1
+  li $s3, 3
+  li $s2, 2
+  li $s1, 1
+  li $s5, 0
+  
+base_converter:
+  lb $s4, 0($a0)
+  beqz $s4, print_answ
+  beq $s4, $t1, print_answ
+  slti $t6, $s4, 58
+
