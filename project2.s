@@ -79,6 +79,11 @@ check_strings:
   slti $t6, $t5, 86
   bne $t6, $zero, move_char
   slti $t6, $t5, 97
+  bne $t6, $zero, err_invalid_input
+  slti $t6, $t5, 118       
+  bne $t6, $zero, step_char_forward
+  bgt $t5, 119, err_invalid_input  
+
   
   
   
