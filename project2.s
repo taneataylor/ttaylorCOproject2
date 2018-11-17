@@ -42,3 +42,11 @@ delete_left_spaces:
   move $t4, $a0  # copies value from $t4 register to $a0
   j input_length  # jumps to input_length function
   
+delete_first_char:  
+  addi $a0, $a0, 1    # $a0 = $a0 + 1
+  j delete_left_spaces
+ 
+input_length:
+  addi $t0, $t0, 0  # $t0 = $t0 + 0
+  addi $t1, $t1, 10    # $t1 = $t1 + 10
+  add $t2, $t2, $a0    # $t2 = $t2 + $a0(1)
