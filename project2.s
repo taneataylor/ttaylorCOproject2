@@ -65,7 +65,7 @@ len_found:
   move $a0, $t2  # $a0 == $t4
   j check_strings  # jumps to check_strings function
   
-check_strings:
+check_strings:  # function that checks user/input string
   lb $t5, 0($a0)  # takes memory from $t5 and place in $a0
   beqz $t5, conversion_prep
   beq $t5, $t1, conversion_prep
@@ -92,10 +92,10 @@ conversion_prep:  # function that prepares values for conversion
   addi $t7, $t7, 0
   add $s0, $s0, $t0
   addi $s0, $s0, -1
-  li $s3, 3
-  li $s2, 2
-  li $s1, 1
-  li $s5, 0
+  li $s3, 3  # loads for saved register 3
+  li $s2, 2  # loads for saved register 2
+  li $s1, 1  # loads for saved register 1
+  li $s5, 0  # loads for saved register 5
   
 base_converter:  # calculates base conversion
   lb $s4, 0($a0)
