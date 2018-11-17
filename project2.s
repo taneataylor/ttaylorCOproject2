@@ -67,9 +67,13 @@ len_found:
   j check_strings  # will implement later
   
 check_strings:
-  lb $t5, 0($a0)
+  lb $t5, 0($a0)  # takes memory from $t5 and place in $a0
   beqz $t5, conversion_prep
   beq $t5, $t1, conversion_prep
   slti $t6, $t5, 48
-  # bne $
+  bne $t6, $zero, error_invalid_input
+  slti $t6, $t5, 58
+  bne $t6, $zero, move_char
+  slti $t6, $t5, 65
+  
   
