@@ -127,8 +127,16 @@ compiled_answ:  # compacts nums for final answer
   beq $s0, $s1, third_int
   beq $s0, $s5, fourth_int
   
-first_digit: 
+first_int: 
   li $s6, 29791 # 31^3
   mult $s4, $s6
   mflo $s7
   add $t7, $t7, $s7
+  addi $s0, $s0, -1
+  addi $a0, $a0, 1
+  j base_converter
+
+second_int:
+  li $s6, 961 # 31^2
+  mult $s4, $s6
+
